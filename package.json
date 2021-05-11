@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -20,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "e2e:local": "env-cmd -f .env testcafe \"safari\" e2e/**/*.spec.ts -r spec",
+    "e2e:browserstack": "env-cmd -f .env testcafe \"browserstack:safari@14.0:OS X Big Sur\" e2e/**/*.spec.ts -r spec"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "testcafe": "^1.14.0",
+    "testcafe-browser-provider-browserstack": "^1.13.2-alpha.1"
   }
 }
